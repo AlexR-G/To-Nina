@@ -1,0 +1,580 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>To Nina</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #0d47a1, #1976d2, #42a5f5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background: white;
+            border-radius: 25px;
+            padding: 45px 35px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        h1 {
+            color: #0d47a1;
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #1565c0;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #333;
+            font-size: 19px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background: #1565c0;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            margin: 8px;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+            button:hover {
+                background: #0d47a1;
+                transform: translateY(-2px);
+            }
+
+        .answer-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .hangout-image {
+            width: 100%;
+            max-width: 450px;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 18px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .main-photo {
+            width: 100%;
+            max-width: 500px;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .yes-title {
+            font-size: 55px;
+            color: #0d47a1;
+            margin-bottom: 10px;
+        }
+
+        .yes-subtitle {
+            font-size: 25px;
+            color: #1565c0;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .girlfriend-text {
+            font-size: 25px;
+            font-weight: bold;
+            color: #0d47a1;
+            margin-top: 25px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            p {
+                font-size: 17px;
+            }
+
+            .yes-title {
+                font-size: 42px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- START -->
+        <div id="startPage">
+            <h1>Yooo</h1>
+
+            <p>I made something for you.</p>
+
+            <button onclick="startQuestions()">Start</button>
+        </div>
+
+
+        <!-- INTRO -->
+        <div id="introPage" class="hidden">
+            <h2>A few important questions</h2>
+
+            <p>
+                Before I ask you something, you have to answer a few questions.
+            </p>
+
+            <button onclick="question1()">Okay</button>
+        </div>
+
+
+        <!-- QUESTION 1 -->
+        <div id="question1Page" class="hidden">
+            <h2>Question 1</h2>
+
+            <p>Do you love me?</p>
+
+            <div class="answer-buttons">
+                <button onclick="question1Yes()">Yes</button>
+                <button onclick="question1No()">No you smell</button>
+            </div>
+        </div>
+
+
+        <!-- QUESTION 1 YES -->
+        <div id="question1YesPage" class="hidden">
+            <h2>I LOVE YOU</h2>
+
+            <p>
+                Good answer my love
+            </p>
+
+            <button onclick="question2()">Continue</button>
+        </div>
+
+
+        <!-- QUESTION 1 NO -->
+        <div id="question1NoPage" class="hidden">
+            <h2>Are You mad?</h2>
+
+            <p>
+                Gonna cry now
+            </p>
+
+            <button onclick="question2()">Continue</button>
+        </div>
+
+
+        <!-- QUESTION 2 -->
+        <div id="question2Page" class="hidden">
+            <h2>Question 2</h2>
+
+            <p>Whats Your favourite thing about me?</p>
+
+            <div class="answer-buttons">
+                <button onclick="question2Eyes()">My eyes</button>
+                <button onclick="question2Football()">My Football team</button>
+                <button onclick="question2Hair()">My hair</button>
+                <button onclick="question2Eyebrows()">My eyebrows</button>
+            </div>
+        </div>
+
+
+        <!-- QUESTION 2 EYES -->
+        <div id="question2EyesPage" class="hidden">
+            <h2>Thank you my baby</h2>
+
+            <p>
+                Similar colour to yours tbf
+            </p>
+
+            <button onclick="question3()">Continue</button>
+        </div>
+
+
+        <!-- QUESTION 2 FOOTBALL -->
+        <div id="question2FootballPage" class="hidden">
+            <h2>Ayy proper tottenham fan u are</h2>
+
+            <p>
+                I love you.
+            </p>
+
+            <button onclick="question3()">Continue</button>
+        </div>
+
+
+        <!-- QUESTION 2 HAIR -->
+        <div id="question2HairPage" class="hidden">
+            <h2>Cheers</h2>
+
+            <p>
+                Takes me ages to get it looking good for you
+            </p>
+
+            <button onclick="question3()">Continue</button>
+        </div>
+
+
+        <!-- QUESTION 2 EYEBROWS -->
+        <div id="question2EyebrowsPage" class="hidden">
+            <h2>I mean you did say that on call tbf</h2>
+
+            <p>
+                I draw them on
+            </p>
+
+            <button onclick="question3()">Continue</button>
+        </div>
+
+
+        <!-- QUESTION 3 -->
+        <div id="question3Page" class="hidden">
+            <h2>Third question</h2>
+
+            <p>Whats been Your favourite hangout with me?</p>
+
+            <div class="answer-buttons">
+                <button onclick="question3Boscombe()">Boscombe Gardens</button>
+                <button onclick="question3Mulligans()">Mulligans</button>
+                <button onclick="question3Oasis()">Oasis Fun + ferris wheel</button>
+            </div>
+        </div>
+
+
+        <!-- BOSCOMBE -->
+        <div id="question3BoscombePage" class="hidden">
+            <h2>Boscombe Gardens</h2>
+
+            <img src="images/boscombe.jpeg"
+                 class="hangout-image"
+                 alt="Boscombe Gardens">
+
+            <p>
+                Cheeky first date.
+            </p>
+
+            <button onclick="question3Next()">Continue</button>
+        </div>
+
+
+        <!-- MULLIGANS -->
+        <div id="question3MulligansPage" class="hidden">
+            <h2>Mulligans</h2>
+
+            <img src="images/mulligans.jpeg"
+                 class="hangout-image"
+                 alt="Mulligans">
+
+            <p>
+                I won btw.
+            </p>
+
+            <button onclick="question3Next()">Continue</button>
+        </div>
+
+
+        <!-- OASIS -->
+        <div id="question3OasisPage" class="hidden">
+            <h2>Oasis Fun + ferris wheel</h2>
+
+            <img src="images/oasis.jpeg"
+                 class="hangout-image"
+                 alt="Oasis Fun and ferris wheel">
+
+            <p>
+                Even though you beat me at bowling(With the bumpers up).
+            </p>
+
+            <button onclick="question3Next()">Continue</button>
+        </div>
+
+
+        <!-- MESSAGE BEFORE FINAL -->
+        <div id="question3NextPage" class="hidden">
+            <h2>Just so you know</h2>
+
+            <p>
+                I've genuinely loved spending time with you. Every date we've had,
+                I've gone home with a smile on my face. I love you so much.
+            </p>
+
+            <button onclick="finalQuestion()">Continue</button>
+        </div>
+
+
+        <!-- FINAL QUESTION -->
+        <div id="finalQuestionPage" class="hidden">
+            <h2>Final question</h2>
+
+            <p>
+                Nina Elizabeth Barton Will You be my Girlfriend?
+            </p>
+
+            <div class="answer-buttons">
+                <button onclick="yesAnswer()">YES</button>
+                <button onclick="maybeAnswer()">maybe/let me think</button>
+                <button onclick="noAnswer()">NO</button>
+            </div>
+        </div>
+
+
+        <!-- MAYBE -->
+        <div id="maybePage" class="hidden">
+            <h2>Okayy</h2>
+
+            <p>
+                That's completely fine. Take your time.
+            </p>
+        </div>
+
+
+        <!-- NO -->
+        <div id="noPage" class="hidden">
+            <h2>Oh</h2>
+
+            <p>
+                Aslong as the other boy doesnt support Arsenal its okay
+            </p>
+        </div>
+
+
+        <!-- YES -->
+        <div id="yesPage" class="hidden">
+
+            <div class="yes-title">
+                NO WAYY
+            </div>
+
+            <div class="yes-subtitle">
+                YOU SAID YES
+            </div>
+
+            <img src="images/us.jpeg"
+                 class="main-photo"
+                 alt="Us">
+
+            <p class="girlfriend-text">
+                YOU'RE THE BEST GIRLFRIEND EVER
+            </p>
+
+            <p>
+                I'm really happy you said yes.
+            </p>
+
+            <p>
+                Nina you mean everything to me even after us only talking for just under 2 months
+            </p>
+
+            <p>
+                I cant wait to make manymore memories than the ones we already have
+            </p>
+
+            <p>
+                I Love you so much
+            </p>
+
+            <button onclick="finalMessage()">NEXT</button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function hideAllPages() {
+
+            const pages = [
+                "startPage",
+                "introPage",
+
+                "question1Page",
+                "question1YesPage",
+                "question1NoPage",
+
+                "question2Page",
+                "question2EyesPage",
+                "question2FootballPage",
+                "question2HairPage",
+                "question2EyebrowsPage",
+
+                "question3Page",
+                "question3BoscombePage",
+                "question3MulligansPage",
+                "question3OasisPage",
+
+                "question3NextPage",
+
+                "finalQuestionPage",
+                "maybePage",
+                "noPage",
+                "yesPage"
+            ];
+
+            pages.forEach(function (page) {
+                document.getElementById(page).classList.add("hidden");
+            });
+        }
+
+
+        function startQuestions() {
+            hideAllPages();
+            document.getElementById("introPage").classList.remove("hidden");
+        }
+
+
+        function question1() {
+            hideAllPages();
+            document.getElementById("question1Page").classList.remove("hidden");
+        }
+
+
+        function question1Yes() {
+            hideAllPages();
+            document.getElementById("question1YesPage").classList.remove("hidden");
+        }
+
+
+        function question1No() {
+            hideAllPages();
+            document.getElementById("question1NoPage").classList.remove("hidden");
+        }
+
+
+        function question2() {
+            hideAllPages();
+            document.getElementById("question2Page").classList.remove("hidden");
+        }
+
+
+        function question2Eyes() {
+            hideAllPages();
+            document.getElementById("question2EyesPage").classList.remove("hidden");
+        }
+
+
+        function question2Football() {
+            hideAllPages();
+            document.getElementById("question2FootballPage").classList.remove("hidden");
+        }
+
+
+        function question2Hair() {
+            hideAllPages();
+            document.getElementById("question2HairPage").classList.remove("hidden");
+        }
+
+
+        function question2Eyebrows() {
+            hideAllPages();
+            document.getElementById("question2EyebrowsPage").classList.remove("hidden");
+        }
+
+
+        function question3() {
+            hideAllPages();
+            document.getElementById("question3Page").classList.remove("hidden");
+        }
+
+
+        function question3Boscombe() {
+            hideAllPages();
+            document.getElementById("question3BoscombePage").classList.remove("hidden");
+        }
+
+
+        function question3Mulligans() {
+            hideAllPages();
+            document.getElementById("question3MulligansPage").classList.remove("hidden");
+        }
+
+
+        function question3Oasis() {
+            hideAllPages();
+            document.getElementById("question3OasisPage").classList.remove("hidden");
+        }
+
+
+        function question3Next() {
+            hideAllPages();
+            document.getElementById("question3NextPage").classList.remove("hidden");
+        }
+
+
+        function finalQuestion() {
+            hideAllPages();
+            document.getElementById("finalQuestionPage").classList.remove("hidden");
+        }
+
+
+        function yesAnswer() {
+            hideAllPages();
+            document.getElementById("yesPage").classList.remove("hidden");
+        }
+
+
+        function maybeAnswer() {
+            hideAllPages();
+            document.getElementById("maybePage").classList.remove("hidden");
+        }
+
+
+        function noAnswer() {
+            hideAllPages();
+            document.getElementById("noPage").classList.remove("hidden");
+        }
+
+
+        function finalMessage() {
+            alert("Sorry I know you wanted to do this in person but i was too nervous");
+        }
+
+    </script>
+
+</body>
+</html>
