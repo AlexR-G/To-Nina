@@ -3,104 +3,360 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy one month anniversary</title>
+
+<title>Happy One Month Anniversary</title>
 
 <style>
 * {
     box-sizing: border-box;
 }
 
+:root {
+    --blue: #2764b4;
+    --dark-blue: #17447f;
+    --light-blue: #eaf3ff;
+    --text: #263448;
+    --white: #ffffff;
+}
+
 body {
     margin: 0;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0d47a1, #64b5f6);
-    color: #263448;
+    padding: 24px 14px;
     min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: var(--text);
+    background: linear-gradient(135deg, #dcecff, #8dbcf1, #eaf4ff);
+    background-attachment: fixed;
 }
 
 .container {
-    max-width: 750px;
+    max-width: 900px;
     margin: 20px auto;
-    padding: 25px;
-    background: white;
-    border-radius: 20px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 24px;
+    box-shadow: 0 15px 45px rgba(28, 70, 125, 0.15);
     text-align: center;
-    box-shadow: 0 8px 25px #0002;
 }
 
-h1 {
-    color: #0d47a1;
-}
-
-p {
-    line-height: 1.7;
-    font-size: 17px;
-}
-
-button {
-    padding: 12px 20px;
-    margin: 6px;
-    border: none;
-    border-radius: 10px;
-    background: #1565c0;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #0d47a1;
-}
+/* NAVIGATION */
 
 nav {
-    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 35px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #e5edf8;
+}
+
+nav button {
+    background: transparent;
+    color: var(--dark-blue);
+    border: 1px solid #d5e4f8;
+    padding: 11px 19px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+nav button:hover {
+    background: var(--light-blue);
+    transform: translateY(-2px);
+}
+
+/* BUTTONS */
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.main-button,
+.quiz-button {
+    padding: 13px 22px;
+    margin: 7px 4px;
+    border: none;
+    border-radius: 12px;
+    background: var(--blue);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0 5px 12px rgba(39, 100, 180, 0.17);
+}
+
+.main-button:hover,
+.quiz-button:hover {
+    background: var(--dark-blue);
+    transform: translateY(-2px);
 }
 
 .page {
     display: none;
+    animation: fadeIn 0.35s ease;
 }
 
 .page.active {
     display: block;
 }
 
-.memory {
-    margin: 20px 0;
-    padding: 15px;
-    background: #eef6ff;
-    border-radius: 12px;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.memory img {
-    width: 100%;
-    max-width: 450px;
-    max-height: 350px;
-    object-fit: cover;
-    border-radius: 12px;
+/* HEADINGS AND TEXT */
+
+h1 {
+    color: var(--dark-blue);
+    font-size: clamp(28px, 5vw, 40px);
+    margin: 10px 0 18px;
 }
 
-.letter {
-    background: #f4f8ff;
-    padding: 20px;
-    border-radius: 12px;
-    white-space: pre-line;
+h2 {
+    color: var(--dark-blue);
+}
+
+p {
+    font-size: 16px;
     line-height: 1.8;
-    text-align: left;
+}
+
+.intro {
+    max-width: 600px;
+    margin: 0 auto 18px;
+}
+
+.small-heading {
+    color: #6480a5;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* HOME PAGE */
+
+.home-photo {
+    width: 100%;
+    max-width: 480px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin: 15px auto 20px;
+    display: block;
+    box-shadow: 0 8px 22px #183d681c;
+}
+
+.home-note {
+    background: var(--light-blue);
+    border-radius: 16px;
+    padding: 15px 20px;
+    max-width: 600px;
+    margin: 22px auto;
+}
+
+/* PHOTO GALLERY */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 13px;
+    margin: 28px 0;
+}
+
+.gallery-item {
+    padding: 0;
+    border: none;
+    background: transparent;
+    overflow: hidden;
+    border-radius: 15px;
+    aspect-ratio: 1 / 1;
+    box-shadow: 0 5px 15px rgba(20, 56, 100, 0.12);
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+.gallery-item:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+}
+
+/* PHOTO VIEWER */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(8, 20, 38, 0.92);
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 82vh;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background: rgba(255, 255, 255, 0.16);
+    font-size: 28px;
+}
+
+/* QUIZ */
+
+.quiz-card {
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 25px;
+    background: #f4f8ff;
+    border: 1px solid #e2edfc;
+    border-radius: 18px;
+}
+
+#question {
+    font-size: 22px;
+    margin-bottom: 22px;
+}
+
+#options {
+    display: grid;
+    gap: 10px;
+}
+
+#options button {
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+    border: 1px solid #d5e4f8;
+    border-radius: 12px;
+    background: white;
+    color: var(--dark-blue);
+    font-size: 15px;
+}
+
+#options button:hover {
+    background: #e5f0ff;
+    border-color: #8db8ed;
 }
 
 #answer {
+    color: var(--dark-blue);
     font-weight: bold;
-    color: #1565c0;
+    min-height: 24px;
+    margin-top: 20px;
 }
 
-@media (max-width: 500px) {
+/* LETTER */
+
+.letter {
+    padding: 25px;
+    background: #f3f7ff;
+    border: 1px solid #e0eafa;
+    border-radius: 17px;
+    white-space: pre-line;
+    line-height: 1.9;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.letter-photo {
+    width: 100%;
+    max-width: 400px;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 17px;
+    margin: 22px auto;
+    display: block;
+    box-shadow: 0 8px 22px #183d681c;
+}
+
+.final-message {
+    margin: 25px auto 10px;
+    padding: 20px;
+    background: var(--light-blue);
+    border-radius: 16px;
+    max-width: 600px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
     body {
-        padding: 8px;
+        padding: 10px;
     }
 
     .container {
-        padding: 18px 12px;
+        padding: 22px 15px;
+        margin: 8px auto;
+        border-radius: 19px;
+    }
+
+    nav {
+        gap: 7px;
+        margin-bottom: 25px;
+    }
+
+    nav button {
+        padding: 10px 13px;
+        font-size: 13px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .gallery-item {
+        border-radius: 11px;
+    }
+
+    .home-photo {
+        height: 240px;
+    }
+
+    .quiz-card {
+        padding: 18px 13px;
+    }
+
+    .letter {
+        padding: 18px;
     }
 }
 </style>
@@ -112,112 +368,178 @@ nav {
 
     <nav>
         <button onclick="showPage('home')">Home</button>
-        <button onclick="showPage('memories')">Memories</button>
+        <button onclick="showPage('memories')">Gallery</button>
         <button onclick="showPage('quiz')">Quiz</button>
         <button onclick="showPage('letterPage')">Letter</button>
     </nav>
 
     <!-- HOME -->
+
     <section id="home" class="page active">
+
+        <div class="small-heading">A little something for you</div>
+
         <h1>One Month With Nina</h1>
 
-        <p>
+        <p class="intro">
             I may not be the best Boyfriend but I want you to know i love you so much
             and i want to be able to have many more anniverseries with you.
         </p>
 
-        <p>I hope this cheers you up my love.</p>
+        <img
+            class="home-photo"
+            src="images/oasis.jpeg"
+            alt="Our day at Oasis Fun"
+            onerror="this.style.display='none'"
+        >
 
-        <button onclick="showPage('memories')">Our memories</button>
+        <div class="home-note">
+            <p>I hope this cheers you up my love.</p>
+        </div>
+
+        <button class="main-button" onclick="showPage('memories')">
+            Look at our photos
+        </button>
+
     </section>
 
-    <!-- MEMORIES -->
+    <!-- GALLERY -->
+
     <section id="memories" class="page">
+
+        <div class="small-heading">The little things mean the most</div>
+
         <h1>Our Memories</h1>
 
-        <div class="memory">
-            <h2>Oasis Fun + Ferris Wheel</h2>
-            <img src="images/oasis.jpeg" alt="Oasis Fun and ferris wheel">
+        <p class="intro">
+            Some of my favourite moments with you. Here's to making loads more.
+        </p>
+
+        <div class="gallery">
+
+            <button class="gallery-item" onclick="openPhoto(this)">
+                <img src="images/oasis.jpeg" alt="Our day at Oasis Fun">
+            </button>
+
+            <button class="gallery-item" onclick="openPhoto(this)">
+                <img src="images/memory1.jpeg" alt="A photo of us together">
+            </button>
+
+            <button class="gallery-item" onclick="openPhoto(this)">
+                <img src="images/memory2.jpeg" alt="A photo of us together">
+            </button>
+
+            <button class="gallery-item" onclick="openPhoto(this)">
+                <img src="images/memory3.jpeg" alt="A photo of us together">
+            </button>
+
+            <button class="gallery-item" onclick="openPhoto(this)">
+                <img src="images/memory4.jpeg" alt="A photo of us together">
+            </button>
+
+            <button class="gallery-item" onclick="openPhoto(this)">
+                <img src="images/memory5.jpeg" alt="A photo of us together">
+            </button>
+
+            <button class="gallery-item" onclick="openPhoto(this)">
+                <img src="images/memory6.jpeg" alt="A photo of us together">
+            </button>
+
+        </div>
+
+        <div class="home-note">
             <p>
                 You beat me at bowling with the bumpers up.
                 Still had a really good day with you.
             </p>
         </div>
 
-        <div class="memory">
-            <h2>Memory 2</h2>
-            <img src="images/memory1.jpeg" alt="Our memory 2">
-            <p>Another memory with you.</p>
-        </div>
-
-        <div class="memory">
-            <h2>Memory 3</h2>
-            <img src="images/memory2.jpeg" alt="Our memory 3">
-            <p>A day I want to remember.</p>
-        </div>
-
-        <div class="memory">
-            <h2>Memory 4</h2>
-            <img src="images/memory3.jpeg" alt="Our memory 4">
-            <p>Another good memory with you.</p>
-        </div>
-
-        <div class="memory">
-            <h2>Memory 5</h2>
-            <img src="images/memory4.jpeg" alt="Our memory 5">
-            <p>One of our moments together.</p>
-        </div>
-
-        <div class="memory">
-            <h2>Memory 6</h2>
-            <img src="images/memory5.jpeg" alt="Our memory 6">
-            <p>More memories with you.</p>
-        </div>
-
-        <div class="memory">
-            <h2>Memory 7</h2>
-            <img src="images/memory6.jpeg" alt="Our memory 7">
-            <p>Hopefully many more memories to come.</p>
-        </div>
-
-        <button onclick="showPage('quiz')">Go to the quiz</button>
-    </section>
-
-    <!-- QUIZ -->
-    <section id="quiz" class="page">
-        <h1>QUIZ</h1>
-
-        <h2 id="question">Where did we go bowling?</h2>
-
-        <div id="options">
-            <button onclick="answer(0)">Oasis Fun</button>
-            <button onclick="answer(1)">Our garden</button>
-            <button onclick="answer(2)">The moon</button>
-        </div>
-
-        <p id="answer"></p>
-
-        <button id="nextQuestion" onclick="nextQuestion()" style="display:none;">
-            Next question
+        <button class="main-button" onclick="showPage('quiz')">
+            Go to the quiz
         </button>
 
-        <div id="quizEnd" style="display:none;">
-            <p>Even if u got none of them right i still love you.</p>
-            <button onclick="showPage('letterPage')">Open your letter</button>
+    </section>
+
+    <!-- PHOTO VIEWER -->
+
+    <div
+        class="lightbox"
+        id="lightbox"
+        onclick="closePhoto()"
+        role="dialog"
+        aria-label="Expanded photo"
+        aria-modal="true"
+    >
+        <button
+            class="close-lightbox"
+            onclick="closePhoto()"
+            aria-label="Close photo"
+        >&times;</button>
+
+        <img id="expandedPhoto" src="" alt="Expanded photo">
+    </div>
+
+    <!-- QUIZ -->
+
+    <section id="quiz" class="page">
+
+        <div class="small-heading">Let's see what you remember</div>
+
+        <h1>Our Little Quiz</h1>
+
+        <div class="quiz-card">
+
+            <h2 id="question">Where did we go bowling?</h2>
+
+            <div id="options"></div>
+
+            <p id="answer" aria-live="polite"></p>
+
+            <button
+                class="main-button"
+                id="nextQuestion"
+                onclick="nextQuestion()"
+                style="display:none;"
+            >
+                Next question
+            </button>
+
+            <div id="quizEnd" style="display:none;">
+                <p>Even if u got none of them right i still love you.</p>
+
+                <button
+                    class="main-button"
+                    onclick="showPage('letterPage')"
+                >
+                    Open your letter
+                </button>
+            </div>
+
         </div>
+
     </section>
 
     <!-- LETTER -->
+
     <section id="letterPage" class="page">
+
+        <div class="small-heading">Just for you</div>
+
         <h1>To My Girl</h1>
 
         <p>Your the best GF EVER.</p>
 
-        <button id="openLetter" onclick="revealLetter()">Open your letter</button>
+        <button
+            class="main-button"
+            id="openLetter"
+            onclick="revealLetter()"
+        >
+            Open your letter
+        </button>
 
         <div id="letterContent" style="display:none;">
-            <div class="letter">
-My Nina,
+
+            <div class="letter">My Nina,
 
 Happy one month my love.
 
@@ -231,22 +553,27 @@ I will always be here for you no matter what and I never want you to forget that
 
 I love you so much Nina.
 
-Happy one month my love.
+Happy one month my love.</div>
+
+            <img
+                class="letter-photo"
+                src="images/us.jpeg"
+                alt="A photo of us"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="final-message">
+                <h2>Happy One Month Nina</h2>
+
+                <p>
+                    I love you so much, my love. I hope you realise that
+                    that will never change. I will always be here for you
+                    no matter what.
+                </p>
             </div>
 
-            <img src="images/us.jpeg"
-                 alt="A photo of us"
-                 style="width:100%;max-width:400px;margin-top:20px;border-radius:12px;"
-                 onerror="this.style.display='none'">
-
-            <h2>Happy One Month Nina</h2>
-
-            <p>
-                I love you so much, my love. I hope you realise that
-                that will never change. I will always be here for you
-                no matter what.
-            </p>
         </div>
+
     </section>
 
 </div>
@@ -258,8 +585,40 @@ function showPage(pageId) {
     });
 
     document.getElementById(pageId).classList.add("active");
-    window.scrollTo(0, 0);
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
+
+/* PHOTO GALLERY */
+
+function openPhoto(button) {
+    const image = button.querySelector("img");
+
+    if (!image || !image.complete || image.naturalWidth === 0) {
+        return;
+    }
+
+    document.getElementById("expandedPhoto").src = image.src;
+    document.getElementById("expandedPhoto").alt = image.alt;
+    document.getElementById("lightbox").classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+
+function closePhoto() {
+    document.getElementById("lightbox").classList.remove("open");
+    document.body.style.overflow = "";
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closePhoto();
+    }
+});
+
+/* QUIZ */
 
 const questions = [
     {
@@ -274,7 +633,11 @@ const questions = [
     },
     {
         question: "Whats my favourite thing about us?",
-        options: ["Spending time with you", "Arguing about football", "Stealing your snacks"],
+        options: [
+            "Spending time with you",
+            "Arguing about football",
+            "Stealing your snacks"
+        ],
         correct: 0,
         responses: [
             "Obviously. I love spending time with you.",
@@ -284,7 +647,11 @@ const questions = [
     },
     {
         question: "How long have we been together?",
-        options: ["One month", "One hundred years", "Five minutes"],
+        options: [
+            "One month",
+            "One hundred years",
+            "Five minutes"
+        ],
         correct: 0,
         responses: [
             "One month down, hopefully many more to come.",
@@ -294,7 +661,11 @@ const questions = [
     },
     {
         question: "What do I want us to do?",
-        options: ["Make more memories together", "Never go on another date", "Support Arsenal"],
+        options: [
+            "Make more memories together",
+            "Never go on another date",
+            "Support Arsenal"
+        ],
         correct: 0,
         responses: [
             "Exactly. Can't wait to do more with you.",
@@ -305,35 +676,44 @@ const questions = [
 ];
 
 let questionIndex = 0;
+let answered = false;
 
 function loadQuestion() {
     const q = questions[questionIndex];
+
+    answered = false;
 
     document.getElementById("question").textContent = q.question;
     document.getElementById("answer").textContent = "";
     document.getElementById("nextQuestion").style.display = "none";
     document.getElementById("quizEnd").style.display = "none";
-    document.getElementById("options").style.display = "block";
+    document.getElementById("options").style.display = "grid";
     document.getElementById("options").innerHTML = "";
 
     q.options.forEach(function(option, index) {
         const button = document.createElement("button");
+
         button.textContent = option;
+
         button.onclick = function() {
             answer(index);
         };
+
         document.getElementById("options").appendChild(button);
     });
 }
 
 function answer(index) {
+    if (answered) return;
+
+    answered = true;
+
     const q = questions[questionIndex];
 
     document.getElementById("answer").textContent = q.responses[index];
     document.getElementById("options").style.display = "none";
 
     if (questionIndex === questions.length - 1) {
-        document.getElementById("nextQuestion").style.display = "none";
         document.getElementById("quizEnd").style.display = "block";
     } else {
         document.getElementById("nextQuestion").style.display = "inline-block";
@@ -341,12 +721,13 @@ function answer(index) {
 }
 
 function nextQuestion() {
-    questionIndex++;
-
-    if (questionIndex < questions.length) {
+    if (questionIndex < questions.length - 1) {
+        questionIndex++;
         loadQuestion();
     }
 }
+
+/* LETTER */
 
 function revealLetter() {
     document.getElementById("letterContent").style.display = "block";
