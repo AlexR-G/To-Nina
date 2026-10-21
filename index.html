@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +8,7 @@
 <title>Happy One Month Anniversary</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 :root {
     --blue: #2764b4;
@@ -40,8 +39,6 @@ body {
     text-align: center;
 }
 
-/* NAVIGATION */
-
 nav {
     display: flex;
     justify-content: center;
@@ -66,8 +63,6 @@ nav button:hover {
     background: var(--light-blue);
     transform: translateY(-2px);
 }
-
-/* BUTTONS */
 
 button {
     font-family: inherit;
@@ -99,22 +94,12 @@ button {
     animation: fadeIn 0.35s ease;
 }
 
-.page.active {
-    display: block;
-}
+.page.active { display: block; }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(7px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(7px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-
-/* HEADINGS AND TEXT */
 
 h1 {
     color: var(--dark-blue);
@@ -122,9 +107,7 @@ h1 {
     margin: 10px 0 18px;
 }
 
-h2 {
-    color: var(--dark-blue);
-}
+h2 { color: var(--dark-blue); }
 
 p {
     font-size: 16px;
@@ -144,8 +127,6 @@ p {
     font-weight: bold;
     margin-bottom: 12px;
 }
-
-/* HOME PAGE */
 
 .home-photo {
     width: 100%;
@@ -193,9 +174,7 @@ p {
     transition: transform 0.3s ease;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.06);
-}
+.gallery-item:hover img { transform: scale(1.06); }
 
 .gallery-item:focus-visible {
     outline: 3px solid var(--blue);
@@ -215,9 +194,7 @@ p {
     background: rgba(8, 20, 38, 0.92);
 }
 
-.lightbox.open {
-    display: flex;
-}
+.lightbox.open { display: flex; }
 
 .lightbox img {
     max-width: 100%;
@@ -315,12 +292,8 @@ p {
     max-width: 600px;
 }
 
-/* MOBILE */
-
 @media (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
+    body { padding: 10px; }
 
     .container {
         padding: 22px 15px;
@@ -343,21 +316,13 @@ p {
         gap: 9px;
     }
 
-    .gallery-item {
-        border-radius: 11px;
-    }
+    .gallery-item { border-radius: 11px; }
 
-    .home-photo {
-        height: 240px;
-    }
+    .home-photo { height: 240px; }
 
-    .quiz-card {
-        padding: 18px 13px;
-    }
+    .quiz-card { padding: 18px 13px; }
 
-    .letter {
-        padding: 18px;
-    }
+    .letter { padding: 18px; }
 }
 </style>
 </head>
@@ -441,12 +406,22 @@ p {
                 <img src="images/memory6.jpeg" alt="First hangout at mine">
             </button>
 
+            <!-- ADDED MEMORY 8 -->
+
+            <button class="gallery-item" onclick="openPhoto(this)">
+                <img src="images/memory7.jpeg" alt="Another memory together">
+            </button>
+
+            <!-- ADDED MEMORY 9 -->
+
+            <button class="gallery-item" onclick="openPhoto(this)">
+                <img src="images/memory8.jpeg" alt="Another special moment">
+            </button>
+
         </div>
 
         <div class="home-note">
-            <p>
-                You beat me at bowling with the bumpers up.
-            </p>
+            <p>You beat me at bowling with the bumpers up.</p>
         </div>
 
         <button class="main-button" onclick="showPage('quiz')">
@@ -735,3 +710,4 @@ loadQuestion();
 
 </body>
 </html>
+```
