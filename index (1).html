@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy One Month My Love</title>
+
+<style>
+:root {
+    --blue: #1565c0;
+    --dark-blue: #0d47a1;
+    --light-blue: #eaf4ff;
+    --pink: #ffe5ef;
+    --white: #ffffff;
+    --text: #263448;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #0d47a1, #1976d2, #90caf9);
+    background-attachment: fixed;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 12px;
+    padding: 13px 22px;
+    margin: 5px;
+    transition: transform .2s, background .2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.primary {
+    color: white;
+    background: var(--blue);
+}
+
+.primary:hover {
+    background: var(--dark-blue);
+}
+
+.secondary {
+    color: var(--dark-blue);
+    background: var(--light-blue);
+}
+
+.container {
+    width: 100%;
+    max-width: 850px;
+    min-height: 500px;
+    margin: 20px auto;
+    padding: 35px;
+    background: white;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 45px #001c493d;
+}
+
+.hidden {
+    display: none !important;
+}
+
+h1 {
+    color: var(--dark-blue);
+    font-size: clamp(32px, 6vw, 52px);
+    margin: 15px 0;
+}
+
+h2 {
+    color: var(--blue);
+    font-size: clamp(25px, 4vw, 34px);
+    margin: 15px 0;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 15px 0 22px;
+}
+
+.eyebrow {
+    color: var(--blue);
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.heart {
+    font-size: 65px;
+    margin: 20px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.12); }
+    30% { transform: scale(1); }
+}
+
+.divider {
+    width: 70px;
+    height: 4px;
+    background: #90caf9;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.nav button {
+    font-size: 13px;
+    padding: 10px 13px;
+}
+
+.progress {
+    height: 6px;
+    background: #e5edf7;
+    border-radius: 10px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--blue);
+    transition: width .3s;
+}
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 25px 0;
+    text-align: left;
+}
+
+.memory-card {
+    border: 2px solid #e1edfa;
+    border-radius: 17px;
+    overflow: hidden;
+    background: #f8fbff;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.memory-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px #0d47a120;
+}
+
+.memory-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    background: #eaf4ff;
+}
+
+.memory-info {
+    padding: 15px;
+}
+
+.memory-info h3 {
+    color: var(--dark-blue);
+    margin-bottom: 7px;
+}
+
+.memory-info p {
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.feature-photo {
+    width: 100%;
+    max-width: 540px;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 8px 25px #0002;
+}
+
+.note {
+    background: #eff7ff;
+    padding: 20px;
+    border-radius: 16px;
+    margin: 20px 0;
+    text-align: left;
+    line-height: 1.8;
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 25px auto;
+    max-width: 520px;
+}
+
+.quiz-options button {
+    width: 100%;
+    margin: 0;
+    color: var(--dark-blue);
+    background: #edf5ff;
+}
+
+.quiz-options button:hover {
+    background: #d7eaff;
+}
+
+.feedback {
+    min-height: 30px;
+    color: var(--blue);
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+.letter {
+    background: linear-gradient(145deg, #f3f8ff, #fff0f6);
+    padding: 25px;
+    border-radius: 18px;
+    text-align: left;
+    white-space: pre-line;
+    line-height: 1.9;
+    font-size: 17px;
+    margin: 25px 0;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 13px;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: #061a37e8;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 25px;
+    background: white;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.modal-content img {
+    width: 100%;
+    max-height: 55vh;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #edf5ff;
+}
+
+@media (max-width: 550px) {
+    body { padding: 8px; }
+    .container { padding: 22px 15px; margin: 8px auto; }
+    .memory-grid { grid-template-columns: 1fr; }
+    .memory-card img { height: 240px; }
+    p { font-size: 16px; }
+    .heart { font-size: 52px; }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <div class="nav">
+        <button class="secondary" onclick="showPage('home')">Home</button>
+        <button class="secondary" onclick="showPage('memories')">Memories</button>
+        <button class="secondary" onclick="showPage('quiz')">Quiz</button>
+        <button class="secondary" onclick="showPage('letter')">Letter</button>
+    </div>
+
+    <!-- HOME -->
+    <section id="home">
+        <div class="eyebrow">For you</div>
+        <h1>One Month With Nina</h1>
+        <div class="divider"></div>
+
+        <p>
+            I may not be the best Boyfriend but I want you to know i love you so much 
+            and i want to be able to have many more anniverseries with you
+        </p>
+
+        <p>
+            I hope this cheers you up my love 
+        </p>
+
+        <button class="primary" onclick="showPage('memories')">
+            Memories
+        </button>
+    </section>
+
+    <!-- MEMORIES -->
+    <section id="memories" class="hidden">
+        <div class="eyebrow">Some memories</div>
+        <h1>Our Memories</h1>
+
+        <div class="progress">
+            <div id="memoryProgress" class="progress-bar"></div>
+        </div>
+
+        <div id="memoryGrid" class="memory-grid"></div>
+
+        <p id="memoryCount"></p>
+
+        <button class="primary" onclick="showPage('quiz')">
+            Next: Quiz
+        </button>
+    </section>
+
+
+    <!-- INDIVIDUAL MEMORY -->
+    <section id="memoryDetail" class="hidden">
+        <div class="eyebrow">A moment with you</div>
+        <h1 id="detailTitle">Our Memory</h1>
+
+        <img id="detailImage" class="feature-photo" src="" alt="Our memory">
+
+        <div class="note">
+            <p id="detailCaption"></p>
+        </div>
+
+        <button class="secondary" onclick="showPage('memories')">
+            All memories
+        </button>
+
+        <button class="primary" onclick="nextMemory()">
+            Next memory
+        </button>
+    </section>
+
+
+    <!-- QUIZ -->
+    <section id="quiz" class="hidden">
+        <h1>QUIZ</h1>
+
+        <div class="progress">
+            <div id="quizProgress" class="progress-bar"></div>
+        </div>
+
+        <h2 id="quizQuestion"></h2>
+        <p id="quizSubtitle">Choose your answer, my love.</p>
+
+        <div id="quizOptions" class="quiz-options"></div>
+        <p id="quizFeedback" class="feedback" aria-live="polite"></p>
+
+        <button id="quizNext" class="primary hidden" onclick="nextQuestion()">
+            Next question
+        </button>
+
+        <div id="quizEnd" class="hidden">
+            <p>
+                Even if u got none of them right i still love you
+            </p>
+            <button class="primary" onclick="showPage('letter')">
+                Open your letter
+            </button>
+        </div>
+    </section>
+
+
+    <!-- LETTER -->
+    <section id="letter" class="hidden">
+        <div class="eyebrow">For my girl</div>
+        <div class="heart">💌</div>
+        <h1>To My Girl</h1>
+
+        <p>
+            Your the best GF EVER
+        </p>
+
+        <button id="openLetter" class="primary" onclick="revealLetter()">
+            Open your letter
+        </button>
+
+        <div id="letterContent" class="hidden">
+            <div class="letter" id="letterText"></div>
+
+            <img src="images/us.jpeg"
+                 class="feature-photo"
+                 alt="A photo of us together"
+                 onerror="this.style.display='none'">
+
+            <h2>Happy One Month Nina </h2>
+
+            <p>
+                I love you so much, my love.
+                I hope you realise that that will never
+                change. I will always be here for you no matter what
+            </p>
+
+            <button class="primary" onclick="showPage('home')">
+             HOME
+            </button>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+  
+</footer>
+
+
+<!-- PHOTO POPUP -->
+<div id="photoModal" class="modal hidden"
+     role="dialog" aria-modal="true" aria-label="Memory photo"
+     onclick="if(event.target===this) closeModal()">
+
+    <div class="modal-content">
+        <h2 id="modalTitle"></h2>
+        <img id="modalImage" src="" alt="Selected memory">
+        <p id="modalCaption"></p>
+
+        <button class="primary" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+
+<script>
+
+// ============================================
+// EDIT YOUR MEMORIES HERE
+// Add or change titles, captions and filenames.
+// Keep your photos inside the images folder.
+// ============================================
+
+const memories = [
+    {
+        title: "Oasis Fun + Ferris Wheel",
+        image: "images/oasis.jpeg",
+        caption: "You beat me at bowling with the bumpers up. Still had a really good day with you."
+    },
+    {
+        title: "Memory 2",
+        image: "images/memory1.jpeg",
+        caption: "A day with you that I want to remember."
+    },
+    {
+        title: "Memory 3",
+        image: "images/memory2.jpeg",
+        caption: "Another memory with you."
+    },
+    {
+        title: "Memory 4",
+        image: "images/memory3.jpeg",
+        caption: "One of the moments I want to keep."
+    },
+    {
+        title: "Memory 5",
+        image: "images/memory4.jpeg",
+        caption: "Another good memory with you."
+    },
+    {
+        title: "Memory 6",
+        image: "images/memory5.jpeg",
+        caption: "A photo I wanted to include."
+    },
+    {
+        title: "Memory 7",
+        image: "images/memory6.jpeg",
+        caption: "More memories to come."
+    }
+];
+
+
+// ============================================
+// EDIT YOUR QUIZ HERE
+// The correct answer is only used to show a
+// playful response, not to keep score.
+// ============================================
+
+const quiz = [
+    {
+        question: "Where did we go bowling?",
+        subtitle: "You should know this one",
+        options: ["Oasis Fun", "Our garden", "The moon"],
+        correct: 0,
+        responses: [
+            "Correct. Still annoyed you beat me with the bumpers up.",
+            "Since when have we got a bowling alley in the garden?",
+            "Would be a good date tbf."
+        ]
+    },
+    {
+        question: "Whats my favourite thing about us?",
+        subtitle: "Think carefully",
+        options: ["Spending time with you", "Arguing about football", "Stealing your snacks"],
+        correct: 0,
+        responses: [
+            "Obviously. I love spending time with you.",
+            "Tbf the football arguments are funny.",
+            "You'd probably steal mine anyway."
+        ]
+    },
+    {
+        question: "How long have we been together?",
+        subtitle: "Hopefully you know this",
+        options: ["One month", "One hundred years", "Five minutes"],
+        correct: 0,
+        responses: [
+            "One month down, hopefully many more to come.",
+            "Bit longer than that I think.",
+            "Feels like five minutes sometimes."
+        ]
+    },
+    {
+        question: "What do I want us to do?",
+        subtitle: "Last one",
+        options: ["Make more memories together", "Never go on another date", "Support Arsenal"],
+        correct: 0,
+        responses: [
+            "Exactly. Can't wait to do more with you.",
+            "Not happening.",
+            "Don't be silly now."
+        ]
+    }
+];
+
+
+// ============================================
+// EDIT YOUR ANNIVERSARY LETTER HERE
+// ============================================
+
+const anniversaryLetter = `My Nina,
+
+Happy one month my love.
+
+I can't believe its already been a month of being your boyfriend. I know I might not be the best boyfriend but I really do try my best to make you happy.
+
+I love spending time with you and every date we've had has been something I want to remember. Even the little things mean a lot to me.
+
+You mean so much to me and I hope you know how much I love you. I want us to have many more anniversaries together and make loads more memories.
+
+I will always be here for you no matter what and I never want you to forget that.
+
+I love you so much Nina.
+
+Happy one month my love.`;
+
+
+// ============================================
+// WEBSITE LOGIC - NO NEED TO EDIT BELOW HERE
+// ============================================
+
+let currentMemory = 0;
+let currentQuestion = 0;
+let answered = false;
+
+function showPage(pageId) {
+    document.querySelectorAll("main section").forEach(section => {
+        section.classList.add("hidden");
+    });
+
+    const page = document.getElementById(pageId);
+    if (page) page.classList.remove("hidden");
+
+    closeModal();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    if (pageId === "memories") renderMemories();
+    if (pageId === "quiz") renderQuestion();
+}
+
+function renderMemories() {
+    const grid = document.getElementById("memoryGrid");
+    grid.innerHTML = "";
+
+    memories.forEach((memory, index) => {
+        const card = document.createElement("article");
+        card.className = "memory-card";
+        card.tabIndex = 0;
+        card.setAttribute("role", "button");
+        card.setAttribute("aria-label", "Open " + memory.title);
+
+        const img = document.createElement("img");
+        img.src = memory.image;
+        img.alt = memory.title;
+        img.loading = "lazy";
+
+        img.onerror = () => {
+            img.alt = "Image missing: " + memory.image;
+            img.style.height = "100px";
+            img.style.objectFit = "contain";
+        };
+
+        const info = document.createElement("div");
+        info.className = "memory-info";
+
+        const title = document.createElement("h3");
+        title.textContent = memory.title;
+
+        const caption = document.createElement("p");
+        caption.textContent = memory.caption;
+
+        info.append(title, caption);
+        card.append(img, info);
+
+        card.addEventListener("click", () => openMemory(index));
+        card.addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openMemory(index);
+            }
+        });
+
+        grid.appendChild(card);
+    });
+
+    document.getElementById("memoryCount").textContent =
+        memories.length + " memories so far";
+
+    document.getElementById("memoryProgress").style.width = "100%";
+}
+
+function openMemory(index) {
+    currentMemory = index;
+
+    const memory = memories[index];
+
+    document.getElementById("detailTitle").textContent = memory.title;
+    document.getElementById("detailImage").src = memory.image;
+    document.getElementById("detailImage").alt = memory.title;
+    document.getElementById("detailCaption").textContent = memory.caption;
+
+    showPage("memoryDetail");
+}
+
+function nextMemory() {
+    currentMemory = (currentMemory + 1) % memories.length;
+    openMemory(currentMemory);
+}
+
+function openModal(index) {
+    const memory = memories[index];
+
+    document.getElementById("modalTitle").textContent = memory.title;
+    document.getElementById("modalImage").src = memory.image;
+    document.getElementById("modalCaption").textContent = memory.caption;
+
+    document.getElementById("photoModal").classList.remove("hidden");
+}
+
+function closeModal() {
+    document.getElementById("photoModal").classList.add("hidden");
+}
+
+function renderQuestion() {
+    const end = document.getElementById("quizEnd");
+    const question = document.getElementById("quizQuestion");
+    const options = document.getElementById("quizOptions");
+    const next = document.getElementById("quizNext");
+    const feedback = document.getElementById("quizFeedback");
+    const subtitle = document.getElementById("quizSubtitle");
+
+    end.classList.add("hidden");
+    options.innerHTML = "";
+    feedback.textContent = "";
+    next.classList.add("hidden");
+    answered = false;
+
+    if (currentQuestion >= quiz.length) {
+        question.textContent = "Quiz complete";
+        subtitle.textContent = "Thats all the questions.";
+        end.classList.remove("hidden");
+        document.getElementById("quizProgress").style.width = "100%";
+        return;
+    }
+
+    const q = quiz[currentQuestion];
+
+    question.textContent = q.question;
+    subtitle.textContent = q.subtitle;
+
+    document.getElementById("quizProgress").style.width =
+        (currentQuestion / quiz.length * 100) + "%";
+
+    q.options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.textContent = option;
+
+        button.addEventListener("click", () => {
+            if (answered) return;
+            answered = true;
+
+            feedback.textContent = q.responses[index];
+
+            Array.from(options.children).forEach(b => {
+                b.disabled = true;
+                b.style.opacity = "0.7";
+            });
+
+            button.style.background = "#d5e9ff";
+            button.style.opacity = "1";
+
+            next.classList.remove("hidden");
+            next.textContent = currentQuestion === quiz.length - 1
+                ? "Finish quiz"
+                : "Next question";
+        });
+
+        options.appendChild(button);
+    });
+}
+
+function nextQuestion() {
+    if (!answered) return;
+    currentQuestion++;
+    renderQuestion();
+}
+
+function revealLetter() {
+    document.getElementById("letterContent").classList.remove("hidden");
+    document.getElementById("openLetter").classList.add("hidden");
+    document.getElementById("letterText").textContent = anniversaryLetter;
+}
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeModal();
+});
+
+// Load the memory cards ready for the first visit.
+renderMemories();
+
+</script>
+
+</body>
+</html>
